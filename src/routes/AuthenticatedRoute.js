@@ -14,7 +14,7 @@ class AuthenticatedRoute extends Component {
     const { component: C, user, ...newProps } = props;
 
     const renderComponent = (routeProps) => {
-      return user ? <C {...routeProps} /> : <Redirect to="/" />;
+      return user ? <C {...routeProps} /> : <Redirect to="/login" />;
     }
 
     return <Route {...newProps} render={renderComponent} />
