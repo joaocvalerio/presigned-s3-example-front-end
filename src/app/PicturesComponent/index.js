@@ -32,7 +32,6 @@ class PicturesComponent extends Component {
   render() {
     const { picturePreview } = this.state
     const { user } = this.props
-    let thumbnailPictureUrl
 
     return (
       <div className="pictures-component-wrapper col___gb col___gb9">
@@ -64,8 +63,9 @@ class PicturesComponent extends Component {
 
   renderUploadedImageThumbail = (picture, index) => {
     const thumbnailPictureUrl = picture.url.replace(/challenge-jcv/g, "challenge-jcvresized")
+
     return (
-      <a target='_blank' href={picture.url} key={index}>
+      <a target='_blank' rel="noopener noreferrer" href={picture.url} key={index}>
         <div className='card-image-container'>
           <div className="card-image" style={{ backgroundImage: `url(${thumbnailPictureUrl})` }} />
         </div>

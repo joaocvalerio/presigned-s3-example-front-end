@@ -1,8 +1,4 @@
-import Cookies from 'universal-cookie'
-
 import * as actionTypes from './actionTypes'
-
-const cookies = new Cookies()
 
 const initialState = {
   presignObject: null,

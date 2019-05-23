@@ -5,18 +5,17 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import {
-  actions as authActions, selectors as authSelectors
+  actions as authActions
 } from '../../../store/reducers/auth'
 
 import CustomButton from '../.././shared/buttons/CustomButton'
-import LogoutButton from '../.././shared/buttons/LogoutButton'
 
 const userPlaceholderImage = require('../../.././assets/images/user_placeholder.jpeg')
 
 class MainNav extends Component {
 
   render() {
-    const { history, user } = this.props
+    const { user } = this.props
 
     return (
       <div className="main-nav-wrapper">
@@ -77,7 +76,6 @@ class MainNav extends Component {
 
 MainNav.propTypes = {
   dispatch: PropTypes.func,
-  history: PropTypes.object,
   user: PropTypes.object,
 }
 

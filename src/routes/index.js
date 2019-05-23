@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 import asyncComponent from './AsyncComponent'
 import AuthenticatedRoute from "./AuthenticatedRoute"
 import NonAuthenticatedRoute from "./NonAuthenticatedRoute"

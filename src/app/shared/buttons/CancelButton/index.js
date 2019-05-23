@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class CancelButton extends Component {
   render() {
-    const { onClick, t } = this.props
+    const { onClick } = this.props
 
     return (
       <button

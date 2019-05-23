@@ -32,27 +32,3 @@ export function login(email, password) {
   }
 }
 
-export function identifyUser(email) {
-  return {
-    types: [actionTypes.IDENTIFY_EMAIL, actionTypes.IDENTIFY_EMAIL_SUCCESS, actionTypes.IDENTIFY_EMAIL_FAIL],
-    promise: (client) => client.post('users/password', {
-      data: {
-        email: email
-      }
-    })
-  }
-}
-
-export function recoverPassword(recoverData) {
-  return {
-    types: [actionTypes.RECOVER_PASSWORD, actionTypes.RECOVER_PASSWORD_SUCCESS, actionTypes.RECOVER_PASSWORD_FAIL],
-    promise: (client) => client.patch('users/password', {
-      data: {
-        reset_password_token: recoverData.recoverToken,
-        password: recoverData.password,
-        password_confirmation: recoverData.passwordConfirm
-      }
-    })
-  }
-}
-

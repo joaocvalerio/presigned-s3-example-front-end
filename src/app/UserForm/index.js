@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import {
-  actions as authActions, selectors as authSelectors
+  actions as authActions
 } from '../../store/reducers/auth'
 
 import {
