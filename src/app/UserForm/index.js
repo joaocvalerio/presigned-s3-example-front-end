@@ -183,10 +183,10 @@ class UserForm extends Component {
   renderButtons = () => (
     <div className="buttons">
       <CustomButton
-        text="delete account"
+        text="logout"
         type="filled"
         color="red"
-        onClick={this.onDeleteClick} />
+        onClick={this.props.logout} />
 
       <div className="cancel-save">
         <CancelButton onClick={this.onCancelClick} />
@@ -310,7 +310,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  destroyUser: authActions.destroyUser,
+  logout: authActions.logout,
   updateUserDetail: userActions.updateUserDetail,
   uploadFileToS3: userActions.uploadToS3
 }, dispatch)
