@@ -7,7 +7,8 @@ const defaultEnvironments = {
   },
 
   production: {
-
+    BASE_URL: 'https://dry-citadel-93367.herokuapp.com',
+    API_BASE_URL: 'https://dry-citadel-93367.herokuapp.com/v1',
   },
 }
 
