@@ -23,9 +23,3 @@ export const getAcceptInvitationSuccess = createSelector([
 ],
 (detail) => detail
 )
-
-export const getAcceptInvitationError = createSelector([
-  (state) => state.emailAuth.acceptInvitationError
-],
-(detail) => detail
-)

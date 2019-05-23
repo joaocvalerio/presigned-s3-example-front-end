@@ -1,0 +1,62 @@
+.pictures-component-wrapper {
+  width: 50%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 100px 48px 32px 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+
+  .user-uploaded-pictures {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+
+    .card-image-container {
+      height: 100px;
+      width: 100px;
+      margin: 10px 10px 10px 10px;
+
+      .card-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+  .user-form-profile-picture {
+    width: 80px;
+    height: 80px;
+    margin-left: $margin;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+
+  .component-buttons {
+    display: flex;
+    align-items: center;
+
+    #button-upload-picture {
+      @extend .upload-button;
+
+      .button-text { color: $white }
+    }
+
+    h2 {
+      @extend .text-button-white;
+      margin-top: $margin;
+    }
+
+    .font-icon { font-size: 28px }
+  }
+}
+
+

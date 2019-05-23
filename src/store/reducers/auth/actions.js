@@ -31,22 +31,23 @@ export function loadUser() {
 
 export function getUser() {
   const devolutAuthToken = cookies.get('devolutAuthToken')
-  let tokenDecoded, userSlug
+  let tokenDecoded, id
+
   if (devolutAuthToken) {
     tokenDecoded  = jwtDecode(devolutAuthToken)
-    userSlug = tokenDecoded.user_slug
+    id = tokenDecoded.user_id
   }
 
   return {
     types: [actionTypes.GET_USER, actionTypes.GET_USER_SUCCESS, actionTypes.GET_USER_FAIL],
-    promise: (client) => client.get(`users/${userSlug}`)
+    promise: (client) => client.get(`users/${id}`)
   }
 }
 
 export function destroyUser(userData) {
   return {
     types: [actionTypes.DESTROY_USER, actionTypes.DESTROY_USER_SUCCESS, actionTypes.DESTROY_USER_FAIL],
-    promise: (client) => client.delete(`users/${userData.eiyu_slug}`, {
+    promise: (client) => client.delete(`users/${userData.id}`, {
       data: {
         user: userData
       }

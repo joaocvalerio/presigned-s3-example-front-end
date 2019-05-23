@@ -11,7 +11,6 @@ import * as serviceWorker from './serviceWorker'
 
 const target = document.getElementById('root')
 
-  console.log(store, history)
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

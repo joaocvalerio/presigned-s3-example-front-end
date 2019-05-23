@@ -4,8 +4,6 @@ const initialState = {
   loaded: false,
   loggingIn: false,
   token: undefined,
-  acceptingInvitation: false,
-  acceptInvitationError: false,
 }
 
 export default function reducer(state = initialState, action = {}) {

@@ -16,14 +16,16 @@ const formatUrl = (path) => (
 export default class client {
   constructor(req) {
     methods.forEach(method => {
-      this[method] = (path, { params, data, headers, files, fields } = {}) => new Promise((resolve, reject) => {
+      this[method] = (path, { params, data, headers, files, fields, type } = {}) => new Promise((resolve, reject) => {
         const urlData = formatUrl(path)
 
         const request = superagent[method](urlData.url);
 
+
         if (params) {
           request.query(params);
         }
+
         if (headers) {
           request.set(headers);
         }
@@ -33,7 +35,7 @@ export default class client {
         }
 
         if (files) {
-          files.forEach(file => request.attach(file.key, file.value));
+          files.forEach(file => request.send(file));
         }
 
         if (fields) {

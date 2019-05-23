@@ -24,10 +24,10 @@ export default function reducer(state = initialState, action = {}) {
         token: action.result.data.token
       }
     case actionTypes.LOAD_USER:
-      const eiyuB2bUserData = cookies.get('eiyuB2bUserData')
+      const UserData = cookies.get('UserData')
       return {
         ...state,
-        user: eiyuB2bUserData
+        user: UserData
       }
     case actionTypes.LOGOUT:
       return initialState
@@ -38,7 +38,7 @@ export default function reducer(state = initialState, action = {}) {
         loaded: false
       }
     case actionTypes.GET_USER_SUCCESS:
-      cookies.set('eiyuB2bUserData', action.result.user, { path: '/' })
+      cookies.set('UserData', action.result.user, { path: '/' })
       return {
         ...state,
         loading: false,
@@ -61,8 +61,8 @@ export default function reducer(state = initialState, action = {}) {
       }
 
     case actionTypes.DESTROY_USER_SUCCESS:
-      cookies.remove('eiyuB2bAuthToken', { path: '/' })
-      cookies.remove('eiyuB2bUserData', { path: '/' })
+      cookies.remove('devolutAuthToken', { path: '/' })
+      cookies.remove('UserData', { path: '/' })
       return initialState
 
     case actionTypes.DESTROY_USER_FAIL:

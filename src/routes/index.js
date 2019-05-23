@@ -6,21 +6,20 @@ import NonAuthenticatedRoute from "./NonAuthenticatedRoute"
 
 // const AsyncAnnouncements = asyncComponent(() => import('pages/Announcements'))
 const AsyncLogin = asyncComponent(() => import('../pages/login.js'))
-// const AsyncSignup = asyncComponent(() => import('pages/Signup'))
-// const AsyncHome = asyncComponent(() => import('pages/Home'))
-// const AsyncUser = asyncComponent(() => import('pages/User'))
+const AsyncSignup = asyncComponent(() => import('../pages/signup'))
+const AsyncHome = asyncComponent(() => import('../pages/home.js'))
+const AsyncAccountUser = asyncComponent(() => import('../pages/account.js'))
 
 const Routes = () => (
   <main style={{minHeight: '100vh'}}>
     <Switch>
       <NonAuthenticatedRoute exact path="/login" component={AsyncLogin} />
-      {/*<NonAuthenticatedRoute exact path="/signup" component={AsyncSignup} />*/}
+      <NonAuthenticatedRoute exact path="/signup" component={AsyncSignup} />
+      <AuthenticatedRoute exact path="/" component={AsyncHome} />
 
-      <Route exact path="/" component={AsyncLogin} />
+      <AuthenticatedRoute exact path="/user/account" component={AsyncAccountUser} />
 
-      {/*<AuthenticatedRoute exact path="/users" component={AsyncUser} />*/}
-
-      <Redirect from="*" to="/login" />
+      <Redirect from="*" to="/" />
     </Switch>
   </main>
 )
