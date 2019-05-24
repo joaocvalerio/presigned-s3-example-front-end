@@ -129,15 +129,6 @@ class SignupForm extends Component {
           width="100%"
           height={8} />
       </div>
-
-      <div className="col___gb col___gb5 button-forgot-password">
-        <CustomButton
-          text="forgot password"
-          type="empty"
-          route="/password/identify"
-          width="100%"
-          height={8} />
-      </div>
     </div>
   )
 

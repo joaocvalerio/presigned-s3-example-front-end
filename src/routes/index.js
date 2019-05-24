@@ -16,7 +16,6 @@ const Routes = () => (
       <NonAuthenticatedRoute exact path="/login" component={AsyncLogin} />
       <NonAuthenticatedRoute exact path="/signup" component={AsyncSignup} />
       <AuthenticatedRoute exact path="/" component={AsyncHome} />
-
       <AuthenticatedRoute exact path="/user/account" component={AsyncAccountUser} />
 
       <Redirect from="*" to="/" />
