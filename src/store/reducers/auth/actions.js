@@ -57,7 +57,7 @@ export function destroyUser(userData) {
 
 export function logout() {
   cookies.remove('devolutAuthToken', { path: '/' })
-  cookies.remove('devolutUserData', { path: '/' })
+  cookies.remove('UserData', { path: '/' })
   return {
     type: actionTypes.LOGOUT
   }
