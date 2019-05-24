@@ -13,9 +13,7 @@ class AuthenticatedRoute extends Component {
     const renderComponent = (routeProps) => {
       if (!user) {
         return <C {...routeProps} />
-      } else if (props.path === '/signup') {
-        // return <Redirect to="/onboarding" />
-      } else {
+      } else if (props.path === '/signup' || props.path === '/login') {
         return <Redirect to="/" />
       }
     }

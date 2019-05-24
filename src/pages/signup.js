@@ -6,10 +6,6 @@ import { connect } from 'react-redux'
 import { setToken } from '../store/reducers/auth/actions'
 
 import {
-  selectors as authSelectors
-} from '../store/reducers/auth'
-
-import {
   actions as emailAuthActions, selectors as emailAuthSelectors
 } from '../store/reducers/emailAuth'
 
@@ -38,14 +34,12 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-  user: PropTypes.object,
   signup: PropTypes.func.isRequired,
   setToken: PropTypes.func.isRequired,
   token: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
-  user: authSelectors.getUser(state),
   token: emailAuthSelectors.getToken(state)
 })
 

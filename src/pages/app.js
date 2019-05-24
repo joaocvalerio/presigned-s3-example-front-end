@@ -48,6 +48,7 @@ class App extends Component {
 
   render () {
     const { history } = this.props
+
     return (
       <BrowserRouter>
         <MainNav history={history}  />

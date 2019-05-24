@@ -13,10 +13,10 @@ const AsyncAccountUser = asyncComponent(() => import('../pages/account.js'))
 const Routes = () => (
   <main style={{minHeight: '100vh'}}>
     <Switch>
-      <NonAuthenticatedRoute exact path="/login" component={AsyncLogin} />
       <NonAuthenticatedRoute exact path="/signup" component={AsyncSignup} />
-      <AuthenticatedRoute exact path="/" component={AsyncHome} />
+      <NonAuthenticatedRoute exact path="/login" component={AsyncLogin} />
       <AuthenticatedRoute exact path="/user/account" component={AsyncAccountUser} />
+      <AuthenticatedRoute exact path="/" component={AsyncHome} />
 
       <Redirect from="*" to="/" />
     </Switch>
