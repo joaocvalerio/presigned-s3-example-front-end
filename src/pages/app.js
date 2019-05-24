@@ -34,15 +34,20 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.updateUserSuccess !==nextProps.updateUserSuccess) {
+    if (nextProps.updateUserSuccess) {
       this.props.getUser()
       this.props.resetUpdateSuccess()
 
     }
 
-    if (this.props.createPictureSuccess !== nextProps.createPictureSuccess) {
-      this.props.getUser()
+    if (nextProps.createPictureSuccess) {
       this.props.resetCreateSuccess()
+    }
+    if (nextProps.fileUploadSuccess) {
+      setTimeout( () => {
+        this.props.getUser()
+        this.props.resetUploadFileSuccess()
+      }, 2000)
     }
   }
 
@@ -76,7 +81,8 @@ const mapStateToProps = (state, props) => ({
   token: state.auth.token,
   user: state.auth.user,
   updateUserSuccess: state.users.updateSuccess,
-  createPictureSuccess: state.pictures.createPictureSuccess
+  createPictureSuccess: state.pictures.createPictureSuccess,
+  fileUploadSuccess: state.pictures.fileUploadSuccess
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -85,6 +91,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   getUser: authActions.getUser,
   resetUpdateSuccess: userActions.resetUpdateSuccess,
   resetCreateSuccess: picturesActions.resetCreateSuccess,
+  resetUploadFileSuccess: picturesActions.resetUploadFileSuccess,
   shouldLoadAuth: authActions.shouldLoadAuth,
 }, dispatch)
 

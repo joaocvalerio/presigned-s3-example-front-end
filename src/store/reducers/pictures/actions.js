@@ -28,3 +28,9 @@ export function resetCreateSuccess() {
     type: actionTypes.CREATE_SUCCESS_RESET
   }
 }
+
+export function resetUploadFileSuccess() {
+  return {
+    type: actionTypes.UPLOAD_FILE_SUCCESS_RESET
+  }
+}

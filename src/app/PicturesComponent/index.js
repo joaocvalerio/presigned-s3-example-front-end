@@ -13,6 +13,7 @@ import {
 import { userPlaceholderImage } from '../shared/utils/user'
 
 import UploadPictureButton from '.././shared/buttons/UploadPictureButton'
+import Loader from '.././shared/Loader'
 
 class PicturesComponent extends Component {
   state = {
@@ -31,7 +32,7 @@ class PicturesComponent extends Component {
 
   render() {
     const { picturePreview } = this.state
-    const { user } = this.props
+    const { user, fileUploading } = this.props
 
     return (
       <div className="pictures-component-wrapper col___gb col___gb9">
@@ -51,10 +52,13 @@ class PicturesComponent extends Component {
             />
           </div>
         </div>
-        <div className="user-uploaded-pictures">
-          { user.pictures.map((picture, index) => (
-              this.renderUploadedImageThumbail(picture, index)
-            ))
+        <div className={`user-uploaded-pictures ${fileUploading && 'uploading'}`}>
+          { fileUploading ?
+            <Loader/>
+            :
+            user.pictures.map((picture, index) => (
+                  this.renderUploadedImageThumbail(picture, index)
+                ))
           }
         </div>
       </div>
@@ -116,7 +120,8 @@ PicturesComponent.propTypes = {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  presignObject: state.pictures.presignObject
+  presignObject: state.pictures.presignObject,
+  fileUploading: state.pictures.fileUploading
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -3,6 +3,11 @@ import * as actionTypes from './actionTypes'
 const initialState = {
   presignObject: null,
   detail: null,
+  createPictureSuccess: false,
+  fileUploading: false,
+  fileUploadSuccess: false,
+  pictureCreating: false,
+  error: null,
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -32,6 +37,11 @@ export default function reducer(state = initialState, action = {}) {
         createPictureSuccess: false,
         error: null,
       }
+    case actionTypes.UPLOAD_FILE:
+      return {
+        ...state,
+        fileUploading: true,
+      }
     case actionTypes.UPLOAD_FILE_SUCCESS:
       return {
         fileUploading: false,
@@ -45,8 +55,8 @@ export default function reducer(state = initialState, action = {}) {
       }
     case actionTypes.UPLOAD_FILE_SUCCESS_RESET:
       return {
+        ...state,
         fileUploadSuccess: false,
-        error: null,
       }
     case actionTypes.RESET: {
       return initialState

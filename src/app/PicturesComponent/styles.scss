@@ -16,6 +16,12 @@
     margin-top: 10px;
     flex-wrap: wrap;
 
+    &.uploading {
+      width: unset !important;
+      margin-top: 100px;
+      align-items: center;
+    }
+
     .card-image-container {
       height: 100px;
       width: 100px;
