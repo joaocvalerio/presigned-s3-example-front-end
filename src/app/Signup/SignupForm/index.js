@@ -28,12 +28,13 @@ class SignupForm extends Component {
   }
 
   handleKeyDown = (event) => {
-    const { email, password, passwordConfirm} = this.state
+    const { email, password, passwordConfirm, name} = this.state
     const hasEmail = email && email.length > 0
     const hasPassword = password && password.length > 0
     const hasPasswordConfirm =  passwordConfirm && passwordConfirm.length > 0
+    const hasName=  name && name.length > 0
 
-    if ((hasEmail || hasPassword || hasPasswordConfirm) && event.keyCode === 13) {
+    if ((hasEmail || hasPassword || hasPasswordConfirm || hasName) && event.keyCode === 13) {
       this.signup()
     }
   }
@@ -204,10 +205,10 @@ class SignupForm extends Component {
   }
 
   signup = () => {
-    const { email, password } = this.state
+    const { email, password, name } = this.state
 
     if (this.allValid()) {
-      this.props.signup({ email, password }).catch((errors) => {
+      this.props.signup({ email, password, name }).catch((errors) => {
         this.showRequestErrors(errors)
       })
     }

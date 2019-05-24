@@ -7,12 +7,14 @@ export function reset() {
 }
 
 export function signup(userData) {
+  console.log(userData)
   return {
     types: [actionTypes.LOGIN, actionTypes.LOGIN_SUCCESS, actionTypes.LOGIN_FAIL],
     promise: (client) => client.post('users', {
       data: {
         email: userData.email,
         password: userData.password,
+        name: userData.name
       }
     })
   }

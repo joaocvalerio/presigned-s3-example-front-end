@@ -32,8 +32,8 @@ class Signup extends Component {
     return <SignupForm signup={this.signup} />
   }
 
-  signup = ({ email, password }) => (
-    this.props.signup({ email, password })
+  signup = ({ email, password, name }) => (
+    this.props.signup({ email, password, name})
   )
 }
 
